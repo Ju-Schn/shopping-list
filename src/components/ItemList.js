@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import '../styles/list.css';
-const items = [
+
+const initialItems = [
   {
     _id: 'c2hvcHBpbmcuaXRlbTox',
     _type: 'shopping.item',
@@ -56,6 +58,8 @@ const items = [
   },
 ];
 
+const [items, setItems] = useState(initialItems);
+
 export default function ItemList() {
   return (
     <section className="list__container">
@@ -67,9 +71,15 @@ export default function ItemList() {
 }
 
 function ListItem({ itemName, onDelete }) {
-  return items.map((item) => (
+  return initialItems.map((item) => (
     <li key={item.id}>
-      <button className="list__button">{item.name.en}</button>
+      <button onClick={handleClickItem} className="list__button">
+        {item.name.en}
+      </button>
     </li>
   ));
+}
+
+function handleClickItem(itemId) {
+  setItems(items.filter((item) => item.id !== itemId));
 }
