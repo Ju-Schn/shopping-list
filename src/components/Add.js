@@ -5,16 +5,16 @@ export default function Add({ onAddItem }) {
   const [itemName, setItemName] = useState('');
   return (
     <>
-      <label className="add__sr-only">Insert Item</label>
+      <label htmlFor="add-item">Type here what you want to buy:</label>
       <input
-        placeholder="Add item here"
+        id="add-item"
         value={itemName}
-        onChange={(e) => setItemName(e.target.value)}
+        onChange={(event) => setItemName(event.target.value)}
       />
       <button
         onClick={() => {
-          setItemName('');
           onAddItem(itemName);
+          setItemName('');
         }}
       >
         Add

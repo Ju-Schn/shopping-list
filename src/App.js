@@ -7,11 +7,17 @@ import { nanoid } from 'nanoid';
 
 function App() {
   const [items, setItems] = useState(initialItems);
+
   function handleDeleteItem(itemId) {
     setItems(items.filter((item) => item._id !== itemId));
   }
+
   function handleAddItem(itemName) {
-    setItems([...items, { _id: nanoid(), name: itemName }]);
+    const newItem = {
+      _id: nanoid(),
+      name: { en: itemName, de: '' },
+    };
+    setItems([...items, newItem]);
   }
   return (
     <>
