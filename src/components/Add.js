@@ -5,7 +5,7 @@ export default function Add({ onAddItem }) {
   const [itemName, setItemName] = useState('');
   return (
     <>
-      <label htmlFor="add-item">Type here what you want to buy:</label>
+      <label htmlFor="add-item">Type here what you want to buy: </label>
       <input
         id="add-item"
         value={itemName}
